@@ -16,10 +16,11 @@ func _process(delta):
 	if position.distance_to(player.position) > 75:
 		move_and_collide(Vector2(1,0).rotated(angle) * speed)
 	else:
-		player.life -= 10
+		player.life -= 1
 		get_parent().remove_child(self)
 		
 	if life <= 0:
+		player.pontos += 1
 		get_parent().remove_child(self)
 		
 		

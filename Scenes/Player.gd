@@ -4,6 +4,7 @@ var direction = Vector2()
 var speed = 4
 var life = 100
 var fireball = preload("res://Scenes/Fireball.tscn")
+var pontos = 0
 
 func _ready():
 	pass
@@ -38,6 +39,12 @@ func _process(delta):
 		var newFireBall = fireball.instance()
 		newFireBall.position = self.position
 		self.get_parent().add_child(newFireBall)
+		
+	#Barra de vida
+	get_parent().get_child(3).scale.x = life / 100.0
+	
+	#Barra de pontos
+	get_parent().get_child(5).scale.x = pontos / 10.0
 		
 	if life <= 0:
 		print("Morri")

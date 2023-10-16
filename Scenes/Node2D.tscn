@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Assets/Run__002.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Player.gd" type="Script" id=2]
@@ -21,6 +21,9 @@
 [ext_resource path="res://Assets/Idle__004.png" type="Texture" id=19]
 [ext_resource path="res://Assets/Idle__007.png" type="Texture" id=20]
 [ext_resource path="res://Assets/Idle__008.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Sprites/Sprites/UI/GreenBar.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Sprites/Sprites/UI/GrayBar.png" type="Texture" id=23]
+[ext_resource path="res://Assets/chao.png" type="Texture" id=24]
 [ext_resource path="res://Scenes/Timer.gd" type="Script" id=31]
 
 [sub_resource type="SpriteFrames" id=1]
@@ -49,12 +52,41 @@ __meta__ = {
 scale = Vector2( 0.167241, 0.140888 )
 frames = SubResource( 1 )
 animation = "Idle"
-frame = 7
+frame = 2
 playing = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
 script = ExtResource( 31 )
+
+[node name="LifeBar2" type="Sprite" parent="."]
+position = Vector2( -1, 0 )
+texture = ExtResource( 23 )
+centered = false
+
+[node name="LifeBar" type="Sprite" parent="."]
+texture = ExtResource( 22 )
+centered = false
+
+[node name="GrayBar" type="Sprite" parent="."]
+position = Vector2( 81, 497 )
+rotation = -1.5708
+texture = ExtResource( 23 )
+centered = false
+
+[node name="GreenBar" type="Sprite" parent="."]
+position = Vector2( 81, 497 )
+rotation = -1.5708
+scale = Vector2( 1e-05, 1 )
+texture = ExtResource( 22 )
+centered = false
+
+[node name="Chao" type="Sprite" parent="."]
+position = Vector2( 505, 299 )
+scale = Vector2( 2.225, 1.18437 )
+z_index = -2
+z_as_relative = false
+texture = ExtResource( 24 )
 
 [connection signal="timeout" from="Timer" to="Timer" method="_on_Timer_timeout"]
