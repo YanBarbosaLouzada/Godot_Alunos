@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 var direction = Vector2()
 var speed = 4
+var life = 100
 var fireball = preload("res://Scenes/Fireball.tscn")
 
 func _ready():
@@ -37,5 +38,8 @@ func _process(delta):
 		var newFireBall = fireball.instance()
 		newFireBall.position = self.position
 		self.get_parent().add_child(newFireBall)
+		
+	if life <= 0:
+		print("Morri")
 	
 	move_and_collide(direction)
